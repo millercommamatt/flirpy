@@ -17,7 +17,10 @@ class Lepton(Core):
         self.conn = None
 
         self.logger = logging.getLogger(__name__)
-        self.logger.setLevel(loglevel)
+        if self.logger.handlers():
+            self.logger.setLevel(loglevel)
+        else:
+            logging.basicConfig(level=loglevel)
 
     @classmethod
     def find_video_device(self):
