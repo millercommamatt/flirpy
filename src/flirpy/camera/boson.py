@@ -318,8 +318,8 @@ class Boson(Core):
         self.cap = None
         self.conn = None
 
-        logging.basicConfig(level=loglevel)
         self.logger = logging.getLogger(__name__)
+        self.logger.setLevel(loglevel)
 
         if port is None:
             port = self.find_serial_device()
